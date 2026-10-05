@@ -20,7 +20,7 @@
     linkedin: "https://www.linkedin.com/in/emad-mostafa-srag-eldein",
     github:   "https://github.com/3madMostafa",
     kaggle:   "https://www.kaggle.com/emadsrageldein",
-    cv:       "",   // link to your CV PDF (optional)
+    cv:       "Emad_Mostafa.pdf",   // link to your CV PDF (optional)
 
     // project links (code or live demo)
     pharmacy_demo:  "",
@@ -32,7 +32,7 @@
     transcribe_code:"",
     oct_code:       "",
     malaria_code:   "",
-    ocr_code:       "https://github.com/3madMostafa/handwriting-cnn"
+    ocr_code:       ""
   };
 </script>
 
@@ -94,10 +94,7 @@
     font-weight: 850; font-variation-settings: "wdth" 125;
     font-size: clamp(3.2rem, 11.5vw, 9.5rem); line-height: .86; letter-spacing: -.025em; margin: 0 0 1.25rem;
   }
-  .name span { display: block; }
-  .js .name span { transform: translateY(105%); opacity: 0; transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s; }
-  .js .name span:nth-child(2) { transition-delay: .12s; }
-  .ready .name span { transform: none; opacity: 1; }
+  .name span { display: block; color: #fff; }
 
   .attn { position: relative; max-width: 54rem; }
   .attn svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
@@ -208,8 +205,12 @@
   .contact .wrap > div:first-child { border-top: 2px solid var(--ink); padding-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem 4rem; }
   .contact p { margin: 0 0 1.75rem; font-size: 1.3125rem; max-width: 32rem; }
   .clinks { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; font-weight: 600; }
-  .copy { position: relative; background: var(--ink); color: var(--bg); padding: .8rem 1.25rem; border-radius: 999px; font-weight: 600; }
-  .copy:hover { background: var(--blue); }
+  .cmail { font-size: clamp(1.3125rem, 2.4vw, 1.5rem); font-weight: 700; overflow-wrap: anywhere; }
+  .copy { position: relative; border: 1.5px solid var(--rule); padding: .4rem .9rem; border-radius: 999px; font-size: .9rem; font-weight: 600; }
+  .copy:hover { border-color: var(--ink); }
+  .cv-btn { background: var(--ink); color: var(--bg); padding: .8rem 1.35rem; border-radius: 999px; text-decoration: none; }
+  .cv-btn:hover { background: var(--blue); color: var(--bg); }
+  .csocial { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 1.5rem; font-weight: 600; }
   .copy .done { position: absolute; left: 50%; top: -2.3rem; transform: translateX(-50%); background: var(--ink); color: var(--bg); font-size: .82rem; padding: .25rem .6rem; border-radius: 6px; opacity: 0; transition: opacity .2s; pointer-events: none; white-space: nowrap; }
   .copy.shown .done { opacity: 1; }
   .foot { margin-top: 4rem; color: var(--muted); font-size: .9rem; }
@@ -239,7 +240,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
-    .js .name span, .js .tok { opacity: 1; transform: none; }
+    .js .tok { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -276,7 +277,7 @@
 
     <div class="cta">
       <a class="btn btn-solid" href="#projects">See my work</a>
-      <a class="btn btn-line" data-link="cv">Download CV</a>
+      <a class="btn btn-line" href="Emad_Mostafa.pdf" data-link="cv" download>Download CV</a>
       <span class="now">Data Scientist at Limitless Labs, part-time with Banyan (US)</span>
     </div>
   </div>
@@ -402,10 +403,14 @@
       <div>
         <p>I'm open to opportunities in ML engineering, time series and applied AI. Email is the fastest way to reach me.</p>
         <div class="clinks">
-          <button class="copy" id="copy" hidden><span id="copytext">Copy email</span><span class="done">Copied</span></button>
-          <a data-link="linkedin">LinkedIn</a>
-          <a data-link="github">GitHub</a>
-          <a data-link="kaggle">Kaggle</a>
+          <a class="cmail" href="mailto:emadmostafa1442002@gmail.com">emadmostafa1442002@gmail.com</a>
+          <button class="copy" id="copy" type="button">Copy<span class="done">Copied</span></button>
+        </div>
+        <div class="csocial">
+          <a class="cv-btn" href="Emad_Mostafa.pdf" data-link="cv" download>Download CV (PDF)</a>
+          <a href="https://www.linkedin.com/in/emad-mostafa-srag-eldein" data-link="linkedin">LinkedIn</a>
+          <a href="https://github.com/3madMostafa" data-link="github">GitHub</a>
+          <a href="https://www.kaggle.com/emadsrageldein" data-link="kaggle">Kaggle</a>
         </div>
       </div>
     </div>
@@ -420,8 +425,9 @@
   /* ---------- links ---------- */
   document.querySelectorAll("[data-link]").forEach(function (a) {
     var v = (LINKS[a.dataset.link] || "").trim();
-    if (!v) { a.remove(); return; }
-    a.href = v; a.target = "_blank"; a.rel = "noopener";
+    if (!v) { if (!a.getAttribute("href")) a.remove(); return; }
+    a.href = v;
+    if (a.dataset.link !== "cv") { a.target = "_blank"; a.rel = "noopener"; }
   });
 
   /* ---------- theme ---------- */
@@ -618,10 +624,8 @@
 
   /* ---------- copy email ---------- */
   var copy = document.getElementById("copy");
-  var email = (LINKS.email || "").trim();
-  if (email) {
-    copy.hidden = false;
-    document.getElementById("copytext").textContent = email;
+  var email = (LINKS.email || "").trim() || "emadmostafa1442002@gmail.com";
+  if (copy) {
     copy.addEventListener("click", function () {
       var done = function () { copy.classList.add("shown"); setTimeout(function () { copy.classList.remove("shown"); }, 1600); };
       if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, function () { location.href = "mailto:" + email; });
