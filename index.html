@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emad Mostafa, Data Scientist and ML Engineer</title>
+<meta name="description" content="Emad Mostafa is a data scientist and machine learning engineer in Cairo working on time series, deep learning and NLP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+
+<script>
+  /* =========================================================
+     EDIT YOUR LINKS HERE
+     Put the full link between the quotes.
+     If a link is empty "", it will be hidden from the page.
+     ========================================================= */
+  const LINKS = {
+    email:    "emadmostafa1442002@gmail.com",
+    linkedin: "https://www.linkedin.com/in/emad-mostafa-srag-eldein",
+    github:   "https://github.com/3madMostafa",
+    kaggle:   "https://www.kaggle.com/emadsrageldein",
+    cv:       "",   // link to your CV PDF (optional)
+
+    // project links (code or live demo)
+    pharmacy_demo:  "",
+    chatpdf_code:   "https://github.com/3madMostafa/chat_pdf",
+    forecast_code:  "https://github.com/3madMostafa/Retail-Sales-Project",
+    forecast_demo:  "https://app-ml-app-yvvmoz8us6zxzubibglmhh.streamlit.app/",
+    summary_code:   "https://github.com/3madMostafa/Video-Summarization-using-subtitles",
+    invoice_code:   "https://github.com/3madMostafa/AI-invoice-scraper",
+    transcribe_code:"",
+    oct_code:       "",
+    malaria_code:   "",
+    ocr_code:       "https://github.com/3madMostafa/handwriting-cnn"
+  };
+</script>
+
+<style>
+  :root {
+    --bg: #fbfbfd;
+    --ink: #0d1030;
+    --muted: #5b5f78;
+    --rule: #e3e4ee;
+    --soft: #eef0ff;
+    --blue: #1f2fd1;
+    --hero: #1f2fd1;
+    --sun: #ffd84a;
+    --wide: 125;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0d1c; --ink: #e8e9f3; --muted: #9a9db8; --rule: #24273f; --soft: #161a35; --blue: #8f9bff; --hero: #18229e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0d1c; --ink: #e8e9f3; --muted: #9a9db8; --rule: #24273f; --soft: #161a35; --blue: #8f9bff; --hero: #18229e;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Archivo", system-ui, sans-serif; font-size: 18px; line-height: 1.6;
+    font-variation-settings: "wdth" 100;
+    transition: background .3s, color .3s;
+  }
+  a { color: inherit; text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  a:hover { color: var(--blue); }
+  :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; border-radius: 3px; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------------- nav ---------------- */
+  nav {
+    position: fixed; inset: 0 0 auto; z-index: 20; color: #fff;
+    transition: background .3s, color .3s, box-shadow .3s;
+  }
+  nav.solid { background: color-mix(in srgb, var(--bg) 88%, transparent); color: var(--ink); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--rule); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
+  .brand { font-weight: 800; font-variation-settings: "wdth" 125; text-decoration: none; letter-spacing: -.01em; }
+  .menu { display: flex; align-items: center; gap: 1.75rem; list-style: none; margin: 0; padding: 0; font-weight: 500; font-size: .95rem; }
+  .menu a { text-decoration: none; opacity: .75; transition: opacity .2s; position: relative; }
+  .menu a:hover, .menu a.on { opacity: 1; color: inherit; }
+  .menu a.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: currentColor; }
+  .theme { width: 2.25rem; height: 2.25rem; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid currentColor; opacity: .8; }
+  .theme:hover { opacity: 1; }
+  .theme svg { width: 16px; height: 16px; }
+
+  /* ---------------- hero ---------------- */
+  .hero { background: var(--hero); color: #fff; padding: 7rem 0 5rem; position: relative; overflow: hidden; transition: background .3s; }
+  .role { font-size: 1.3125rem; font-weight: 500; opacity: .85; margin: 0 0 2.75rem; }
+  .name {
+    font-weight: 850; font-variation-settings: "wdth" 125;
+    font-size: clamp(3.2rem, 11.5vw, 9.5rem); line-height: .86; letter-spacing: -.025em; margin: 0 0 1.25rem;
+  }
+  .name span { display: block; }
+  .js .name span { transform: translateY(105%); opacity: 0; transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s; }
+  .js .name span:nth-child(2) { transition-delay: .12s; }
+  .ready .name span { transform: none; opacity: 1; }
+
+  .attn { position: relative; max-width: 54rem; }
+  .attn svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .sentence {
+    position: relative; margin: 0; font-weight: 500; font-variation-settings: "wdth" 100;
+    font-size: clamp(1.45rem, 3.4vw, 2.5rem); line-height: 2.1; letter-spacing: -.015em;
+  }
+  .tok {
+    display: inline-block; padding: .06em .14em; line-height: 1.2; border-radius: .18em; cursor: default;
+    background: rgba(255, 216, 74, var(--w, 0)); color: #fff;
+    transition: background .35s, color .35s;
+  }
+  .js .tok { opacity: 0; transform: translateY(.4em); transition: opacity .4s, transform .4s, background .35s, color .35s; }
+  .ready .tok { opacity: 1; transform: none; }
+  .tok.src { background: var(--sun); color: #0d1030; }
+  .tok.hot { color: #0d1030; }
+  .arc { fill: none; stroke: var(--sun); stroke-linecap: round; }
+  .hint { font-size: .95rem; opacity: .7; margin: .5rem 0 2.75rem; display: flex; align-items: center; gap: .6rem; }
+  .hint i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--sun); display: inline-block; }
+
+  .cta { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.35rem; border-radius: 999px;
+    font-weight: 600; text-decoration: none; transition: background .2s, border-color .2s;
+  }
+  .btn-solid { background: #fff; color: var(--hero); }
+  .btn-solid:hover { color: var(--hero); background: #e9ebff; }
+  .btn-line { border: 1.5px solid rgba(255,255,255,.55); color: #fff; }
+  .btn-line:hover { color: #fff; border-color: #fff; }
+  .now { margin-left: .75rem; opacity: .8; font-size: .95rem; }
+
+  /* ---------------- sections ---------------- */
+  section.block { padding: 6.5rem 0 0; }
+  section.block, .contact { scroll-margin-top: 4rem; }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2.5rem; }
+  h2 {
+    margin: 0; font-weight: 800; font-variation-settings: "wdth" 125;
+    font-size: clamp(2.25rem, 5vw, 3rem); line-height: 1; letter-spacing: -.02em;
+  }
+  .lede { color: var(--muted); max-width: 30rem; margin: 0; }
+
+  /* filters */
+  .filters { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+  .chip { padding: .25rem 0; border-bottom: 2px solid transparent; color: var(--muted); font-weight: 500; }
+  .chip:hover { color: var(--ink); }
+  .chip[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+
+  /* project list */
+  .plist { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .proj { border-bottom: 1px solid var(--rule); }
+  .proj[hidden] { display: none; }
+  .ptop {
+    width: 100%; text-align: left; display: grid; align-items: center;
+    grid-template-columns: 9rem minmax(0, 1fr) auto 2rem; gap: 1.5rem; padding: 1.6rem 0;
+  }
+  .pcat { color: var(--muted); font-size: .93rem; }
+  .ptitle { font-size: clamp(1.3125rem, 2.2vw, 1.5rem); font-weight: 650; letter-spacing: -.01em; line-height: 1.25; }
+  .pmetric { font-weight: 700; color: var(--blue); white-space: nowrap; }
+  .plus { width: 2rem; height: 2rem; position: relative; }
+  .plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .3s; }
+  .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .proj.open .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .pbody { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2,.8,.2,1); }
+  .proj.open .pbody { grid-template-rows: 1fr; }
+  .pinner { overflow: hidden; }
+  .pcontent { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; padding-bottom: 2rem; }
+  .pcontent > div { grid-column: 2; max-width: 44rem; }
+  .pcontent p { margin: 0 0 1rem; font-size: 1.08rem; }
+  .pcontent ul { margin: 0 0 1.25rem; padding-left: 1.1rem; }
+  .pcontent li { margin-bottom: .35rem; }
+  .pcontent li::marker { color: var(--blue); }
+  .stack { color: var(--muted); font-size: 1rem; margin: 0 0 1rem; }
+  .plinks { display: flex; gap: 1.25rem; font-weight: 600; }
+
+  /* timeline */
+  .tl { position: relative; list-style: none; margin: 0; padding: 0 0 0 2.5rem; }
+  .tl::before { content: ""; position: absolute; left: .45rem; top: .6rem; bottom: .6rem; width: 2px; background: var(--rule); }
+  .ti { position: relative; padding-bottom: 3rem; display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .25rem 2rem; }
+  .ti:last-child { padding-bottom: 0; }
+  .ti::before {
+    content: ""; position: absolute; left: -2.5rem; top: .45rem; width: 1rem; height: 1rem; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--muted);
+  }
+  .ti:first-child::before { border-color: var(--blue); background: var(--blue); }
+  .twhen { color: var(--muted); font-size: .95rem; padding-top: .2rem; }
+  .ti h3 { margin: 0; font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; }
+  .twhere { color: var(--muted); margin: 0 0 .6rem; }
+  .ttag { font-size: .78rem; font-weight: 700; padding: .1rem .5rem; border-radius: 4px; margin-left: .5rem; vertical-align: .2em; background: var(--soft); color: var(--blue); }
+  .ti p, .ti ul { margin: 0; max-width: 40rem; }
+  .ti ul { padding-left: 1.1rem; }
+  .ti li { margin-bottom: .3rem; }
+  .ti li::marker { color: var(--blue); }
+
+  /* skills + education */
+  .two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 4rem; }
+  .skills { margin: 0; }
+  .skills div { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .skills dt { color: var(--muted); }
+  .skills dd { margin: 0; font-weight: 500; }
+  .edu { background: var(--soft); border-radius: 10px; padding: 1.75rem; align-self: start; }
+  .edu .twhen { padding: 0; margin-bottom: .5rem; }
+  .edu h3 { margin: 0 0 .3rem; font-size: 1.2rem; line-height: 1.3; }
+  .edu p { margin: 0; color: var(--muted); }
+  .edu .edu-gap { margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); }
+
+  /* contact */
+  .contact { margin-top: 6.5rem; padding: 0 0 2.5rem; }
+  .contact .wrap > div:first-child { border-top: 2px solid var(--ink); padding-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem 4rem; }
+  .contact p { margin: 0 0 1.75rem; font-size: 1.3125rem; max-width: 32rem; }
+  .clinks { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; font-weight: 600; }
+  .copy { position: relative; background: var(--ink); color: var(--bg); padding: .8rem 1.25rem; border-radius: 999px; font-weight: 600; }
+  .copy:hover { background: var(--blue); }
+  .copy .done { position: absolute; left: 50%; top: -2.3rem; transform: translateX(-50%); background: var(--ink); color: var(--bg); font-size: .82rem; padding: .25rem .6rem; border-radius: 6px; opacity: 0; transition: opacity .2s; pointer-events: none; white-space: nowrap; }
+  .copy.shown .done { opacity: 1; }
+  .foot { margin-top: 4rem; color: var(--muted); font-size: .9rem; }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 1rem; }
+    .menu li.sec { display: none; }
+    .hero { padding: 6.5rem 0 3.5rem; }
+    .name { margin-bottom: 2.5rem; }
+    .now { margin: .5rem 0 0; width: 100%; }
+    section.block { padding-top: 4.5rem; }
+    .ptop { grid-template-columns: minmax(0, 1fr) 2rem; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .pcat { grid-column: 1; grid-row: 1; }
+    .ptitle { grid-column: 1; grid-row: 2; }
+    .pmetric { grid-column: 1; grid-row: 3; font-size: .93rem; }
+    .plus { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
+    .pcontent { grid-template-columns: 1fr; }
+    .pcontent > div { grid-column: 1; }
+    .ti { grid-template-columns: 1fr; }
+    .tl { padding-left: 2rem; }
+    .ti::before { left: -2rem; }
+    .two { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills div { grid-template-columns: 1fr; gap: .2rem; }
+    .contact { margin-top: 4.5rem; }
+    .contact .wrap > div:first-child { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    .js .name span, .js .tok { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<nav id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">EM</a>
+    <ul class="menu">
+      <li class="sec"><a href="#projects">Projects</a></li>
+      <li class="sec"><a href="#experience">Experience</a></li>
+      <li class="sec"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="theme" id="theme" aria-label="Switch light or dark theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1 class="name"><span>Emad</span><span>Mostafa</span></h1>
+    <p class="role">Data Scientist and Machine Learning Engineer, Cairo</p>
+
+    <div class="attn" id="attn">
+      <svg id="arcs" aria-hidden="true"></svg>
+      <p class="sentence" id="sentence">I build models that read documents, answer questions, and forecast what comes next.</p>
+    </div>
+    <p class="hint"><i></i><span><span id="hintverb">Hover</span> a word to see which words it pays attention to.</span></p>
+
+    <div class="cta">
+      <a class="btn btn-solid" href="#projects">See my work</a>
+      <a class="btn btn-line" data-link="cv">Download CV</a>
+      <span class="now">Data Scientist at Limitless Labs, part-time with Banyan (US)</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="head">
+        <h2>Projects</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      </div>
+      <ul class="plist" id="plist"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="head">
+        <h2>Experience</h2>
+        <p class="lede">Building ML in industry since 2024. Before that, I taught machine learning to more than 180 students.</p>
+      </div>
+
+      <ol class="tl" id="tl">
+        <li class="ti">
+          <div class="twhen">Aug 2025 to now</div>
+          <div>
+            <h3>Data Scientist</h3>
+            <p class="twhere">Limitless Labs Egypt, Cairo (on-site)</p>
+            <ul>
+              <li>Generate synthetic financial time series with TimeGAN to make up for limited market data.</li>
+              <li>Check the quality of the synthetic data with statistical tests: return distributions, autocorrelation and the stylized facts of real markets.</li>
+              <li>Build deep learning and reinforcement learning models for trading.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="ti">
+          <div class="twhen">Nov 2024 to now</div>
+          <div>
+            <h3>AI and ML Solutions Engineer <span class="ttag">Part-time</span></h3>
+            <p class="twhere">Banyan, remote (USA)</p>
+            <ul>
+              <li>One of seven engineers building a pharmacy optimization platform used by pharmacies in the US.</li>
+              <li>Build and ship AI features for the product, from data analysis to deployment on AWS.</li>
+              <li>Develop data pipelines and ML models for trend detection that feed the drug recommendation logic.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="ti">
+          <div class="twhen">Jul 2024 to Sep 2024</div>
+          <div>
+            <h3>Data Science Instructor <span class="ttag">Teaching</span></h3>
+            <p class="twhere">iSchool</p>
+            <p>Taught data science and machine learning to school students through short, hands-on exercises.</p>
+          </div>
+        </li>
+
+        <li class="ti">
+          <div class="twhen">Jun 2024 to Oct 2024</div>
+          <div>
+            <h3>Data Science Intern</h3>
+            <p class="twhere">IBM, Digital Egypt Pioneers Initiative (DEPI)</p>
+            <p>Built dashboards in Excel and Power BI, did feature engineering for ML models, and worked with cloud-based model deployment on IBM Cloud.</p>
+          </div>
+        </li>
+
+        <li class="ti">
+          <div class="twhen">Jan 2023 to Feb 2024</div>
+          <div>
+            <h3>Machine Learning Instructor <span class="ttag">Teaching</span></h3>
+            <p class="twhere">IEEE student branch, Faculty of Computers and AI, Helwan University</p>
+            <p>Taught 100+ students the math, statistics and Python they need for ML, then Pandas, NumPy, scikit-learn and TensorFlow. Supervised their projects on regression, classification, SVMs and neural networks.</p>
+          </div>
+        </li>
+
+        <li class="ti">
+          <div class="twhen">Jul 2022 to Sep 2023</div>
+          <div>
+            <h3>Machine Learning Instructor <span class="ttag">Teaching</span></h3>
+            <p class="twhere">MSP Tech Club, Helwan</p>
+            <p>Ran an 8-session workshop on machine learning and deep learning for 80+ participants. 90% of the feedback was positive.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="head"><h2>Skills and education</h2></div>
+      <div class="two">
+        <dl class="skills">
+          <div><dt>Languages and data</dt><dd>Python, SQL, PostgreSQL, MySQL, Pandas, NumPy, scikit-learn</dd></div>
+          <div><dt>Time series</dt><dd>TimeGAN, synthetic data evaluation, forecasting with LSTM, Prophet and XGBoost</dd></div>
+          <div><dt>Deep learning</dt><dd>PyTorch, TensorFlow, CNNs, RNNs and LSTMs, GANs, transfer learning, reinforcement learning</dd></div>
+          <div><dt>Statistics</dt><dd>Hypothesis testing, distribution analysis, statistical modeling</dd></div>
+          <div><dt>NLP and LLMs</dt><dd>RAG, LangChain, embeddings, Transformers, NER, summarization</dd></div>
+          <div><dt>MLOps and cloud</dt><dd>AWS, Docker, MLflow, Streamlit, Git, Linux, Power BI</dd></div>
+          <div><dt>Certificates</dt><dd>Machine Learning Specialization (Coursera), DeepLearning.AI TensorFlow Developer, IBM Data Science Professional</dd></div>
+          <div><dt>Languages</dt><dd>Arabic (native), English (very good)</dd></div>
+        </dl>
+        <div class="edu">
+          <div class="twhen">2024 to 2027</div>
+          <h3>M.Sc. in Statistics, Data Science track</h3>
+          <p>Cairo University, Faculty of Graduate Studies for Statistical Research. In progress.</p>
+          <div class="twhen edu-gap">2020 to 2024</div>
+          <h3>B.Sc. in Computer Science and Artificial Intelligence</h3>
+          <p>Helwan University, grade: Very Good</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Contact</h2>
+      <div>
+        <p>I'm open to opportunities in ML engineering, time series and applied AI. Email is the fastest way to reach me.</p>
+        <div class="clinks">
+          <button class="copy" id="copy" hidden><span id="copytext">Copy email</span><span class="done">Copied</span></button>
+          <a data-link="linkedin">LinkedIn</a>
+          <a data-link="github">GitHub</a>
+          <a data-link="kaggle">Kaggle</a>
+        </div>
+      </div>
+    </div>
+    <p class="foot">Emad Mostafa, Cairo, 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- links ---------- */
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var v = (LINKS[a.dataset.link] || "").trim();
+    if (!v) { a.remove(); return; }
+    a.href = v; a.target = "_blank"; a.rel = "noopener";
+  });
+
+  /* ---------- theme ---------- */
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById("nav");
+  var hero = document.getElementById("top");
+  new IntersectionObserver(function (e) {
+    nav.classList.toggle("solid", !e[0].isIntersecting);
+  }, { rootMargin: "-64px 0px 0px 0px" }).observe(hero);
+
+  var navLinks = document.querySelectorAll(".menu a[href^='#']");
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) navLinks.forEach(function (l) { l.classList.toggle("on", l.getAttribute("href") === "#" + en.target.id); });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  ["projects", "experience", "skills", "contact"].forEach(function (id) { spy.observe(document.getElementById(id)); });
+
+  /* ---------- attention hero ---------- */
+  if (matchMedia("(hover: none)").matches) document.getElementById("hintverb").textContent = "Tap";
+  var sentence = document.getElementById("sentence");
+  var svg = document.getElementById("arcs");
+  var words = sentence.textContent.trim().split(/\s+/);
+  sentence.innerHTML = "";
+  var toks = words.map(function (w, i) {
+    var s = document.createElement("span");
+    s.className = "tok"; s.textContent = w; s.tabIndex = 0;
+    s.style.transitionDelay = reduce ? "0s" : (0.35 + i * 0.045) + "s, " + (0.35 + i * 0.045) + "s, 0s, 0s";
+    sentence.appendChild(s);
+    sentence.appendChild(document.createTextNode(" "));
+    return s;
+  });
+  var clean = words.map(function (w) { return w.toLowerCase().replace(/[^a-z]/g, ""); });
+
+  // hand-picked "attention" links between related words
+  var links = {
+    i: { build: .9, models: .4 },
+    build: { models: .9, i: .5 },
+    models: { build: .7, read: .5, forecast: .5, answer: .4 },
+    that: { models: .9 },
+    read: { documents: .95, models: .4 },
+    documents: { read: .85, questions: .45 },
+    answer: { questions: .95, documents: .5 },
+    questions: { answer: .9, documents: .55 },
+    and: { forecast: .6, answer: .4 },
+    forecast: { next: .85, comes: .6, what: .45 },
+    what: { comes: .8, forecast: .5 },
+    comes: { next: .9, what: .5 },
+    next: { forecast: .8, comes: .6 }
+  };
+
+  var current = -1, auto = true, timer;
+  function show(i) {
+    current = i;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    toks.forEach(function (t) { t.classList.remove("src", "hot"); t.style.setProperty("--w", 0); });
+    if (i < 0) return;
+    var box = svg.getBoundingClientRect();
+    var a = toks[i].getBoundingClientRect();
+    var ax = a.left + a.width / 2 - box.left, ay = a.top - box.top + a.height * 0.18;
+    toks[i].classList.add("src");
+    var row = links[clean[i]] || {};
+    toks.forEach(function (t, j) {
+      var w = row[clean[j]];
+      if (!w || j === i) return;
+      t.style.setProperty("--w", (w * 0.85).toFixed(2));
+      if (w > .55) t.classList.add("hot");
+      var b = t.getBoundingClientRect();
+      var bx = b.left + b.width / 2 - box.left, by = b.top - box.top + b.height * 0.18;
+      var lift = Math.min(90, 22 + Math.abs(bx - ax) * 0.22 + Math.abs(by - ay) * 0.3);
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", "M" + ax + " " + ay + " C " + ax + " " + (Math.min(ay, by) - lift) + ", " + bx + " " + (Math.min(ay, by) - lift) + ", " + bx + " " + by);
+      p.setAttribute("class", "arc");
+      p.setAttribute("stroke-width", (1 + w * 4).toFixed(1));
+      p.setAttribute("opacity", (0.35 + w * 0.65).toFixed(2));
+      svg.appendChild(p);
+      if (!reduce) {
+        var len = p.getTotalLength();
+        p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
+        p.getBoundingClientRect();
+        p.style.transition = "stroke-dashoffset .55s cubic-bezier(.2,.8,.2,1)";
+        p.style.strokeDashoffset = 0;
+      }
+    });
+  }
+  var tour = [4, 6, 9, 2, 12];
+  var step = 0;
+  function cycle() {
+    if (!auto) return;
+    show(tour[step % tour.length]); step++;
+    timer = setTimeout(cycle, 2600);
+  }
+  function take(i) { auto = false; clearTimeout(timer); show(i); }
+  toks.forEach(function (t, i) {
+    t.addEventListener("mouseenter", function () { take(i); });
+    t.addEventListener("focus", function () { take(i); });
+    t.addEventListener("click", function () { take(i); });
+  });
+  window.addEventListener("resize", function () { if (current >= 0) show(current); });
+
+  requestAnimationFrame(function () {
+    root.classList.add("ready");
+    setTimeout(cycle, reduce ? 0 : 1300);
+  });
+
+  /* ---------- projects ---------- */
+  var PROJECTS = [
+    { cat: "Production", where: "Banyan, 2024 to now", title: "Pharmacy audit and alternative drug recommendation", metric: "Live product", featured: true,
+      summary: "A system for US pharmacies that reviews prescriptions against insurance rules and market prices, then suggests alternative drugs that are covered and more profitable. The goal: help pharmacies earn more on each claim without changing the patient's treatment.",
+      points: ["Checks each prescription against insurance rules and market data.", "Suggests covered alternatives with a better margin for the pharmacy.", "Built with a team of seven, deployed on AWS."],
+      stack: ["Python", "PostgreSQL", "Classical ML", ".NET APIs", "React", "AWS"], links: [["pharmacy_demo", "Watch demo"]] },
+    { cat: "NLP", where: "Personal project", title: "ChatPDF with retrieval-augmented generation", metric: "RAG",
+      summary: "Upload a PDF and ask questions about it. Answers come from the document, not from the model's memory.",
+      points: ["Splits the PDF into chunks and turns each chunk into an embedding.", "For each question, finds the closest chunks with vector search.", "Sends only those chunks to the language model, so the answer stays grounded in the document."],
+      stack: ["Python", "RAG", "Embeddings", "Vector search", "LLMs"], links: [["chatpdf_code", "Code"]] },
+    { cat: "NLP", where: "Automation", title: "Invoice scraper with named entity recognition", metric: "NER",
+      summary: "Collects invoices every day without manual work and pulls out the fields the team needs.",
+      points: ["A Python scraper runs daily and collects new invoices.", "A NER model extracts PO numbers, vendor names and other key invoice fields."],
+      stack: ["Python", "Web scraping", "NER"], links: [["invoice_code", "Code"]] },
+    { cat: "Time series", where: "Personal project", title: "Retail sales forecasting", metric: "3 models vs. baseline",
+      summary: "Forecasts daily store sales and shows the results in a small web app.",
+      points: ["Linear regression as the baseline.", "Compared Prophet, XGBoost and an LSTM against it.", "Used KMeans to group stores with similar sales patterns.", "Tracked experiments in MLflow and served the forecasts with Streamlit."],
+      stack: ["Python", "Prophet", "XGBoost", "LSTM", "KMeans", "MLflow", "Streamlit"], links: [["forecast_demo", "Live app"], ["forecast_code", "Code"]] },
+    { cat: "NLP", where: "Personal project", title: "Video, PDF and audio summarization", metric: "70% shorter",
+      summary: "Summarizes long videos, audio and PDF documents while keeping the main points and context.",
+      points: ["Works on video, audio and PDF content.", "Summaries are about 70% shorter than the source."],
+      stack: ["Python", "Transformers", "Summarization"], links: [["summary_code", "Code"]] },
+    { cat: "NLP", where: "Personal project", title: "Audio transcription", metric: "90% word accuracy",
+      summary: "A speech-to-text tool that turns recordings into clean text.",
+      points: ["Tested on recordings with different noise levels and speakers.", "About 90% word-level accuracy."],
+      stack: ["Python", "Speech-to-text"], links: [["transcribe_code", "Code"]] },
+    { cat: "Vision", where: "Medical imaging", title: "Retinal OCT scan classification", metric: "92% accuracy",
+      summary: "Multi-label classification of retinal OCT scans using transfer learning.",
+      points: ["Fine-tuned VGG16 and InceptionV3 on the OCT dataset.", "Reached 92% accuracy."],
+      stack: ["Python", "TensorFlow", "VGG16", "InceptionV3"], links: [["oct_code", "Code"]] },
+    { cat: "Vision", where: "Medical imaging", title: "Malaria detection from cell images", metric: "95% accuracy",
+      summary: "Detects malaria-infected cells in microscope images.",
+      points: ["Compared a neural network and an SVM.", "Tuned the better model to 95% accuracy."],
+      stack: ["Python", "TensorFlow", "ANN", "SVM"], links: [["malaria_code", "Code"]] },
+    { cat: "Vision", where: "Computer vision", title: "Handwritten digit recognition", metric: "98% accuracy",
+      summary: "Recognizes handwritten digits from the MNIST dataset.",
+      points: ["Compared a fully connected network with a CNN.", "The CNN reached 98% accuracy."],
+      stack: ["Python", "TensorFlow", "CNN"], links: [["ocr_code", "Code"]] }
+  ];
+
+  var list = document.getElementById("plist");
+  PROJECTS.forEach(function (p, i) {
+    var li = document.createElement("li");
+    li.className = "proj" + (p.featured ? " open" : "");
+    li.dataset.cat = p.cat;
+    var id = "p" + i;
+    var links = p.links.filter(function (l) { return (LINKS[l[0]] || "").trim(); })
+      .map(function (l) { return '<a href="' + LINKS[l[0]].trim() + '" target="_blank" rel="noopener">' + l[1] + "</a>"; }).join("");
+    li.innerHTML =
+      '<button class="ptop" aria-expanded="' + !!p.featured + '" aria-controls="' + id + '">' +
+        '<span class="pcat">' + p.cat + "</span>" +
+        '<span class="ptitle">' + p.title + "</span>" +
+        '<span class="pmetric">' + p.metric + "</span>" +
+        '<span class="plus" aria-hidden="true"></span>' +
+      "</button>" +
+      '<div class="pbody" id="' + id + '"><div class="pinner"><div class="pcontent"><div>' +
+        "<p>" + p.summary + "</p>" +
+        "<ul>" + p.points.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" +
+        '<p class="stack">' + p.stack.join(", ") + "</p>" +
+        (links ? '<div class="plinks">' + links + "</div>" : "") +
+      "</div></div></div></div>";
+    li.querySelector(".ptop").addEventListener("click", function () {
+      var open = li.classList.toggle("open");
+      this.setAttribute("aria-expanded", open);
+    });
+    list.appendChild(li);
+  });
+
+  var cats = ["All", "Production", "Time series", "NLP", "Vision"];
+  var filters = document.getElementById("filters");
+  cats.forEach(function (c) {
+    var b = document.createElement("button");
+    b.className = "chip"; b.setAttribute("aria-pressed", c === "All");
+    b.textContent = c;
+    b.addEventListener("click", function () {
+      filters.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+      list.querySelectorAll(".proj").forEach(function (li) { li.hidden = c !== "All" && li.dataset.cat !== c; });
+    });
+    filters.appendChild(b);
+  });
+
+  /* ---------- copy email ---------- */
+  var copy = document.getElementById("copy");
+  var email = (LINKS.email || "").trim();
+  if (email) {
+    copy.hidden = false;
+    document.getElementById("copytext").textContent = email;
+    copy.addEventListener("click", function () {
+      var done = function () { copy.classList.add("shown"); setTimeout(function () { copy.classList.remove("shown"); }, 1600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, function () { location.href = "mailto:" + email; });
+      else location.href = "mailto:" + email;
+    });
+  }
+})();
+</script>
+</body>
+</html>
