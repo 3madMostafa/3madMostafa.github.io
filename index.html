@@ -547,22 +547,22 @@
       summary: "A system for US pharmacies that reviews prescriptions against insurance rules and market prices, then suggests alternative drugs that are covered and more profitable. The goal: help pharmacies earn more on each claim without changing the patient's treatment.",
       points: ["Checks each prescription against insurance rules and market data.", "Suggests covered alternatives with a better margin for the pharmacy.", "Built with a team of seven, deployed on AWS."],
       stack: ["Python", "PostgreSQL", "Classical ML", ".NET APIs", "React", "AWS"], links: [["pharmacy_demo", "Watch demo"]] },
-    { cat: "NLP", where: "Personal project", title: "ChatPDF with retrieval-augmented generation", metric: "RAG",
-      summary: "Upload a PDF and ask questions about it. Answers come from the document, not from the model's memory.",
-      points: ["Splits the PDF into chunks and turns each chunk into an embedding.", "For each question, finds the closest chunks with vector search.", "Sends only those chunks to the language model, so the answer stays grounded in the document."],
-      stack: ["Python", "RAG", "Embeddings", "Vector search", "LLMs"], links: [["chatpdf_code", "Code"]] },
-    { cat: "NLP", where: "Automation", title: "Invoice scraper with named entity recognition", metric: "NER",
-      summary: "Collects invoices every day without manual work and pulls out the fields the team needs.",
-      points: ["A Python scraper runs daily and collects new invoices.", "A NER model extracts PO numbers, vendor names and other key invoice fields."],
-      stack: ["Python", "Web scraping", "NER"], links: [["invoice_code", "Code"]] },
+    { cat: "NLP", where: "Personal project", title: "AI study assistant", metric: "7 tools",
+      summary: "Upload a PDF, an image or a YouTube link and learn from it: ask questions, make quizzes and flashcards, or listen to the answer.",
+      points: ["Reads normal and scanned PDFs, with OCR in Arabic and English.", "Uses the Gemini API for answers, quizzes, flashcards and video summaries.", "Can read answers out loud with text-to-speech."],
+      stack: ["Python", "Streamlit", "Gemini API", "OCR", "Text-to-speech"], links: [["chatpdf_code", "Code"]] },
+    { cat: "Automation", where: "Automation", title: "E-invoice automation", metric: "Runs daily",
+      summary: "Downloads new e-invoices from the Egyptian tax portal every day, finds the PO number in each one and emails an Excel report to the team.",
+      points: ["Selenium logs in and downloads the invoices (JSON and PDF).", "Rules and regex find PO numbers, even when they are written with Arabic digits.", "Windows Task Scheduler runs the whole pipeline every morning."],
+      stack: ["Python", "Selenium", "Regex", "pandas", "Streamlit"], links: [["invoice_code", "Code"]] },
     { cat: "Time series", where: "Personal project", title: "Retail sales forecasting", metric: "3 models vs. baseline",
       summary: "Forecasts daily store sales and shows the results in a small web app.",
       points: ["Linear regression as the baseline.", "Compared Prophet, XGBoost and an LSTM against it.", "Used KMeans to group stores with similar sales patterns.", "Tracked experiments in MLflow and served the forecasts with Streamlit."],
       stack: ["Python", "Prophet", "XGBoost", "LSTM", "KMeans", "MLflow", "Streamlit"], links: [["forecast_demo", "Live app"], ["forecast_code", "Code"]] },
-    { cat: "NLP", where: "Personal project", title: "Video, PDF and audio summarization", metric: "70% shorter",
-      summary: "Summarizes long videos, audio and PDF documents while keeping the main points and context.",
-      points: ["Works on video, audio and PDF content.", "Summaries are about 70% shorter than the source."],
-      stack: ["Python", "Transformers", "Summarization"], links: [["summary_code", "Code"]] },
+    { cat: "NLP", where: "Personal project", title: "Video summarization", metric: "70% shorter",
+      summary: "Summarizes long videos from their subtitles while keeping the main points.",
+      points: ["Compared 5 methods (TF-IDF, Doc2Vec, T5, SentenceTransformer, FastText) on 523 YouTube videos.", "SentenceTransformer gave the best ROUGE-1 F1 score (0.391).", "Summaries are about 70% shorter than the source."],
+      stack: ["Python", "NLP", "Transformers", "ROUGE"], links: [["summary_code", "Code"]] },
     { cat: "NLP", where: "Personal project", title: "Audio transcription", metric: "90% word accuracy",
       summary: "A speech-to-text tool that turns recordings into clean text.",
       points: ["Tested on recordings with different noise levels and speakers.", "About 90% word-level accuracy."],
@@ -609,7 +609,7 @@
     list.appendChild(li);
   });
 
-  var cats = ["All", "Production", "Time series", "NLP", "Vision"];
+  var cats = ["All", "Production", "Time series", "NLP", "Vision", "Automation"];
   var filters = document.getElementById("filters");
   cats.forEach(function (c) {
     var b = document.createElement("button");
