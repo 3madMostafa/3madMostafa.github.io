@@ -32,7 +32,8 @@
     transcribe_code:"",
     oct_code:       "",
     malaria_code:   "",
-    ocr_code:       "https://github.com/3madMostafa/recognition-of-handwritten-digits"
+    ocr_code:       "https://github.com/3madMostafa/recognition-of-handwritten-digits",
+    letters_code:   "https://github.com/3madMostafa/handwriting-cnn"
   };
 </script>
 
@@ -578,7 +579,11 @@
     { cat: "Vision", where: "Computer vision", title: "Handwritten digit recognition", metric: "95.8% accuracy",
       summary: "Recognizes handwritten digits from the EMNIST Digits dataset.",
       points: ["Built a neural network from scratch with NumPy (92.6% accuracy).", "Built the same model with Keras and reached 95.8% accuracy."],
-      stack: ["Python", "NumPy", "Keras"], links: [["ocr_code", "Code"]] }
+      stack: ["Python", "NumPy", "Keras"], links: [["ocr_code", "Code"]] },
+    { cat: "Vision", where: "Computer vision", title: "Handwritten letter recognition", metric: "26 letters",
+      summary: "Reads handwritten letters from A to Z. You can draw a letter in a small desktop app and the model tells you which one it is.",
+      points: ["A CNN with 3 convolution layers, trained on the EMNIST Letters dataset.", "A simple neural network baseline reached 90.1% accuracy.", "Tkinter drawing app that sends your letter to the trained model."],
+      stack: ["Python", "TensorFlow", "CNN", "Tkinter"], links: [["letters_code", "Code"]] }
   ];
 
   var list = document.getElementById("plist");
