@@ -32,7 +32,7 @@
     transcribe_code:"",
     oct_code:       "",
     malaria_code:   "",
-    ocr_code:       ""
+    ocr_code:       "https://github.com/3madMostafa/recognition-of-handwritten-digits"
   };
 </script>
 
@@ -575,10 +575,10 @@
       summary: "Detects malaria-infected cells in microscope images.",
       points: ["Compared a neural network and an SVM.", "Tuned the better model to 95% accuracy."],
       stack: ["Python", "TensorFlow", "ANN", "SVM"], links: [["malaria_code", "Code"]] },
-    { cat: "Vision", where: "Computer vision", title: "Handwritten digit recognition", metric: "98% accuracy",
-      summary: "Recognizes handwritten digits from the MNIST dataset.",
-      points: ["Compared a fully connected network with a CNN.", "The CNN reached 98% accuracy."],
-      stack: ["Python", "TensorFlow", "CNN"], links: [["ocr_code", "Code"]] }
+    { cat: "Vision", where: "Computer vision", title: "Handwritten digit recognition", metric: "95.8% accuracy",
+      summary: "Recognizes handwritten digits from the EMNIST Digits dataset.",
+      points: ["Built a neural network from scratch with NumPy (92.6% accuracy).", "Built the same model with Keras and reached 95.8% accuracy."],
+      stack: ["Python", "NumPy", "Keras"], links: [["ocr_code", "Code"]] }
   ];
 
   var list = document.getElementById("plist");
